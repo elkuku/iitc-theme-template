@@ -1,0 +1,49 @@
+name: Build
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Create the themes.json file
+        run: node scripts/create-themes-file.js
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          cache: 'yarn'
+
+      - name: Install dependencies
+        run: yarn install --immutable --frozen-lockfile
+
+      - name: Run build
+        run: yarn build:prod
+
+      - name: Setup GitHub page
+        run: node scripts/setup-github-page.js
+
+      - name: Upload build artifact to pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: gh_page
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
