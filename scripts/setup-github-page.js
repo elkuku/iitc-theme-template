@@ -41,10 +41,16 @@ const pluginData = JSON.parse(
     fs.readFileSync('plugin.json', 'utf8'),
 )
 
-const releaseLinks = releaseFiles
-    .filter(name => !name.endsWith('meta.js'))
-    .map(name => `<li><a href="files/release/${name}">${name}</a></li>`)
-    .join('\n')
+let releaseLinks = []
+if (releaseFiles.length > 0) {
+    releaseLinks = releaseFiles
+        .filter(name => !name.endsWith('meta.js'))
+        .map(name => `<li><a href="files/release/${name}">${name}</a></li>`)
+        .join('\n')
+
+} else {
+    releaseLinks = '<li>No release yet</li>'
+}
 
 const devLinks = devFiles
     .filter(name => !name.endsWith('meta.js'))
