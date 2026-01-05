@@ -42,8 +42,7 @@ jobs:
       # -------------------------------
       - name: Detect latest tag
         id: tag_check
-        run: |
-          TAG=$(git tag --sort=-v:refname | head -n 1 || true)
+        run: TAG=$(git tag --sort=-v:refname | head -n 1 || true)
 
        #   TAG=$(git tag \
        #     --list 'v[0-9]*.[0-9]*' 'v[0-9]*.[0-9]*.[0-9]*' \
