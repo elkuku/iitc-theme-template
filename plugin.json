@@ -4,6 +4,5 @@
   "category": "Themes",
   "description": "A theme for IITC",
   "author": "<AUTHOR>",
-  "entry": "src/Main.ts",
-  "minimize": false
+  "entry": "src/Main.ts"
 }
