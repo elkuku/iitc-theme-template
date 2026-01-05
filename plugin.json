@@ -1,0 +1,9 @@
+{
+  "name": "IITC plugin: TcTheme-<NAME>",
+  "id": "iitc_plugin_TcTheme_<NAME>",
+  "category": "Themes",
+  "description": "A theme for IITC",
+  "author": "<AUTHOR>",
+  "entry": "src/Main.ts",
+  "minimize": false
+}
