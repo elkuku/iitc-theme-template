@@ -15,10 +15,14 @@ fs.mkdirSync('gh_page', {recursive: true})
 fs.cpSync('github_page', 'gh_page', {recursive: true})
 fs.cpSync('build', 'gh_page/files', {recursive: true})
 
-const releaseFiles = fs
-    .readdirSync('build/release', {withFileTypes: true})
-    .filter(entry => entry.isFile())
-    .map(entry => entry.name)
+let releaseFiles = []
+
+if (fs.existsSync('build/release')) {
+    releaseFiles = fs
+        .readdirSync('build/release', {withFileTypes: true})
+        .filter(entry => entry.isFile())
+        .map(entry => entry.name)
+}
 
 const devFiles = fs
     .readdirSync('build/dev', {withFileTypes: true})
@@ -52,11 +56,11 @@ let template = fs.readFileSync('gh_page/index.html', 'utf8')
 const projectName = pluginData.name.replace('IITC plugin: ', '')
 
 template = template.replace('{{DEV_LINKS}}', devLinks)
-template = template.replace('{{RELEASE_LINKS}}', releaseLinks)
-template = template.replaceAll('{{PROJECT_NAME}}', projectName)
-template = template.replaceAll('{{PROJECT_VERSION}}', version)
-template = template.replaceAll('{{LAST_UPDATED}}', formattedDate)
-template = template.replace('{{PROJECT_DESCRIPTION}}', pluginData.description)
+    .replace('{{RELEASE_LINKS}}', releaseLinks)
+    .replaceAll('{{PROJECT_NAME}}', projectName)
+    .replaceAll('{{PROJECT_VERSION}}', version)
+    .replaceAll('{{LAST_UPDATED}}', formattedDate)
+    .replace('{{PROJECT_DESCRIPTION}}', pluginData.description)
 
 fs.writeFileSync('gh_page/index.html', template, 'utf8')
 
