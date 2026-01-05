@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Create the themes.json file
-        run: node .github/scripts/create-themes-file.js
+        run: node scripts/create-themes-file.js
 
       - name: Setup Node.js environment
         uses: actions/setup-node@v4
