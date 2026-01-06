@@ -16,9 +16,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
-      - name: Create the themes.json file
-        run: node scripts/create-themes-file.js
+        with:
+          fetch-depth: 0
 
       - name: Setup Node.js environment
         uses: actions/setup-node@v4
@@ -33,7 +32,7 @@ jobs:
       - name: Build HEAD
         run: |
           yarn install --immutable --frozen-lockfile
-          yarn build:prod
+          yarn build:alldev
           mkdir -p build/dev
           cp -r dist/* build/dev/
 
@@ -41,13 +40,11 @@ jobs:
         # Detect latest tag (if any)
         # -------------------------------
 
-        #   TAG=$(git tag \
-        #     --list 'v[0-9]*.[0-9]*' 'v[0-9]*.[0-9]*.[0-9]*' \
-        #     --sort=-v:refname | head -n 1 || true)
-
       - name: Detect latest tag
         id: tag_check
         run: TAG=$(git tag --sort=-v:refname | head -n 1 || true)
+          
+          echo "tag=$TAG";
           
           if [ -z "$TAG" ]; then
           echo "has_tag=false" >> "$GITHUB_OUTPUT";
@@ -57,7 +54,7 @@ jobs:
           fi
 
       # -------------------------------
-      # Checkout latest tag (conditional)
+      # Checkout latest tag
       # -------------------------------
       - name: Checkout latest tag
         if: steps.tag_check.outputs.has_tag == 'true'
@@ -67,14 +64,14 @@ jobs:
           path: tagged
 
       # -------------------------------
-      # Build latest tag (conditional)
+      # Build latest tag
       # -------------------------------
       - name: Build latest tag
         if: steps.tag_check.outputs.has_tag == 'true'
         working-directory: tagged
         run: |
-          npm ci
-          npm run build
+          yarn install --immutable --frozen-lockfile
+          yarn build
           mkdir -p ../build/release
           cp -r dist/* ../build/release/
 
