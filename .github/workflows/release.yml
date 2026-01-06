@@ -2,7 +2,7 @@ name: release.yml
 on:
   push:
     tags:
-      - 'v*' # Trigger this workflow when a tag starting with 'v' is pushed
+      - 'xv*' # Trigger this workflow when a tag starting with 'v' is pushed
 
 jobs:
   build:
@@ -11,9 +11,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-
-      - name: Create the themes.json file
-        run: node scripts/create-themes-file.js
 
       - name: Setup Node.js environment
         uses: actions/setup-node@v4
@@ -25,7 +22,7 @@ jobs:
         run: yarn install --immutable --frozen-lockfile
 
       - name: Run build
-        run: yarn build:prod
+        run: yarn build
 
       - name: Create Release and Upload Assets
         uses: softprops/action-gh-release@v1
