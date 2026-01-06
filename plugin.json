@@ -4,5 +4,6 @@
   "category": "Themes",
   "description": "A theme for IITC",
   "author": "<AUTHOR>",
-  "entry": "src/Main.ts"
+  "entry": "src/Main.ts",
+  "downloadURL": "https://<OWNER>.github.io/<REPO>/files/release/<PLUGIN_NAME>.user.js"
 }
