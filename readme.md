@@ -1,8 +1,6 @@
 # IITC Theme `<TEMPLATE>`
 
-This is a template for IITC themes
-
-## Usage
+This is a template for IITC themes. To set it up please read the [setup guide](setup.md) then adjust this readme to your needs.
 
 ...
 
