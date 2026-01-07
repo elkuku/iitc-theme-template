@@ -10,7 +10,7 @@ This file is responsible for the plugin. You have to change the following items:
 
 * `<NAME>` Replace this with the "name" of your plugin.<br>
 e.g.: `"name": "IITC plugin: TcTheme-YourTheme",`<br>
-The same for `id`.
+The same for `id` (don't use spaces).
 * `<AUTHOR>` - your name.
 * The `downloadURL` key:<br>
 `<OWNER>` and `<REPO>` are referring to the owner and repository on GitHub.<br>
