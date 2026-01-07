@@ -1,5 +1,7 @@
 # Set up your theme
 
+After creating your repository, please activate GitHub pages from your repository `Settings/Pages` and set it to `GitHub Actions`.
+
 Before you can start writing CSS you have to set up some files that are required to build the whole thing.
 
 ### 1. Edit `plugin.json`
@@ -25,6 +27,6 @@ Inside the `theme` folder find the `meta.json` file and set:
 
 ### 3. Create your theme
 
-We are done with the setup. 
+We are done with the setup. Let's go for the CSS.
 
 ...
