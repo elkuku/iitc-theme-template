@@ -1,6 +1,10 @@
 # IITC Theme `<TEMPLATE>`
 
-This is a template for IITC themes. To set it up please read the [setup guide](setup.md) then adjust this readme to your needs.
+This is a template for IITC themes.
+
+To use it click the "Use this template" button on the GitHub repository and then "Create a new repository".
+
+To set it up please read the [setup guide](setup.md) then adjust this readme to your needs.
 
 ...
 
