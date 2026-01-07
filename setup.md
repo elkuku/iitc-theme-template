@@ -31,7 +31,7 @@ We are done with the setup. Let's go for the CSS.
 
 #### `main.css`
 
-This is the ... main CSS file of your theme :stuck_out_tongue:
+This is ... well ... the main CSS file of your theme :stuck_out_tongue:
 
 #### `other.css`
 
