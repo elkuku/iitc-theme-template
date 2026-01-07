@@ -4,6 +4,10 @@ This is a template for IITC themes. To set it up please read the [setup guide](s
 
 ...
 
+`<CHANGEME>`
+
+...
+
 ## GitHub Page 
 
 `https://<OWNER>.github.io/<REPO>/<PLUGIN_NAME>.user.js`
