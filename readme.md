@@ -14,7 +14,7 @@ To set it up please read the [setup guide](setup.md) then adjust this readme to 
 
 ## GitHub Page 
 
-`https://<OWNER>.github.io/<REPO>/<PLUGIN_NAME>.user.js`
+`https://<OWNER>.github.io/<REPO>`
 
 ----
 Made with :heart: and the [IITC Plugin Kit](https://github.com/McBen/IITCPluginKit)
