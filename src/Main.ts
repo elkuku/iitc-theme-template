@@ -5,6 +5,9 @@ import * as Plugin from 'iitcpluginkit'
 // @ts-expect-error we don't want to import JSON files :(
 import theme from '../build/theme.json'
 
+// @ts-expect-error we don't want to import any files :(
+import changelog from '../build/changelog.txt'
+
 // @ts-expect-error we don't want to import JSON files :(
 import config from '../plugin.json'
 
@@ -21,6 +24,10 @@ class Main implements Plugin.Class {
 
     public getTheme(): Theme {
         return theme as Theme
+    }
+
+    public getChangelog(): string {
+        return changelog as string
     }
 }
 
