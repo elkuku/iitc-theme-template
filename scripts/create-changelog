@@ -1,0 +1,2 @@
+#!/bin/bash
+git tag -n99 --sort=-creatordate > build/changelog.txt
