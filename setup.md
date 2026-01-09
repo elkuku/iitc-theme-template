@@ -1,10 +1,11 @@
-# Set up your theme
+# Set up your Theme
 
-After creating your repository, please activate GitHub pages from your repository `Settings/Pages` and set it to `GitHub Actions`.
+After creating your repository, please activate GitHub pages from your repositories `Settings/Pages`
+under `Build and deployment` set the `Source` to `GitHub Actions`.
 
-Before you can start writing CSS you have to set up some files that are required to build the whole thing.
+Before you can start writing CSS, you have to edit a file that is required to build the whole thing.
 
-### 1. Edit `plugin.json`
+### Edit `plugin.json`
 
 This file is responsible for the plugin. Change the following items to fit your needs:
 
@@ -15,17 +16,12 @@ The same for `id`. (Don't use spaces and don't remove the "TcTheme" part).
 * The `downloadURL` key:<br>
 `<OWNER>` and `<REPO>` are referring to the owner and repository on GitHub.<br>
 `<PLUGIN_NAME>` - copy the whole `id` field from above.
+* `<DISPLAY_NAME>`- The name that will be displayed in the theme chooser.
+* `<PREVIEW_URL` - The preview URL of your theme.
 
-OK. This was the hardest part. Only one more file to edit and we are done with the setup. I promise :wink:
+OK. This was the hardest part. I promise :wink:
 
-### 2. Edit `meta.json`
-
-Inside the `theme` folder find the `meta.json` file and set:
-
-* `name` - The name that will be displayed in the theme chooser.
-* `preview` - The preview URL of your theme.
-
-### 3. Create your theme (finally)
+### Create your Theme
 
 We are done with the setup. Let's go for the CSS.
 
