@@ -66,6 +66,7 @@ jobs:
         with:
           ref: ${{ steps.tag_check.outputs.tag }}
           path: tagged
+          fetch-depth: 0
 
       # -------------------------------
       # Build latest tag
