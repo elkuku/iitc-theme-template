@@ -8,7 +8,7 @@
     "build": "yarn build:all",
     "build:dev": "yarn ipk build:dev",
     "build:prod": "yarn ipk build:prod",
-    "build:changelog": "scripts/create-changelog",
+    "build:changelog": "node scripts/create-changelog.js",
     "build:themes": "node scripts/create-themes-file.js",
     "build:all": "yarn build:themes && yarn build:changelog && yarn ipk build:prod",
     "build:alldev": "yarn build:themes && yarn build:changelog && yarn ipk build:dev",

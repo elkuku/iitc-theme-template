@@ -2,33 +2,50 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{PROJECT_NAME}}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/styles.css"/>
 </head>
 <body>
 
-<h1>{{PROJECT_NAME}}</h1>
+<div class="container">
 
-<p>
-    <em>{{PROJECT_DESCRIPTION}}</em>
-</p>
+    <h1>{{PROJECT_NAME}}</h1>
 
-<p>
-    Latest Version: {{PROJECT_VERSION}}<br>
-    Last Updated: {{LAST_UPDATED}}<br>
-</p>
+    <p>
+        <em>{{PROJECT_DESCRIPTION}}</em>
+    </p>
 
-<h3>Release Version</h3>
+    <p>
+        Latest Version: {{PROJECT_VERSION}}<br>
+        Last Updated: {{LAST_UPDATED}}<br>
+    </p>
 
-<ul>
-    {{RELEASE_LINKS}}
-</ul>
+    <div class="release-container">
+        <h3>Release Version</h3>
 
-<h3>Beta Version</h3>
+        <ul>
+            {{RELEASE_LINKS}}
+        </ul>
+    </div>
 
-<ul>
-    {{DEV_LINKS}}
-</ul>
+    <h3>Beta Version</h3>
+
+    <ul>
+        {{DEV_LINKS}}
+    </ul>
+
+    <h3>Changelog</h3>
+
+    <table class="changelog-table">
+        <tbody>
+        {{CHANGELOG}}
+        </tbody>
+    </table>
+
+</div><!-- container -->
 
 </body>
 </html>

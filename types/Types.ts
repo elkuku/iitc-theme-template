@@ -6,9 +6,8 @@ export interface Theme {
     options?: Record<string, string>,
 }
 
-export interface Settings {
-    theme: string
-    variant: string
-    options: string[]
+export interface Changelog {
+    name: string,
+    message: string,
 }
 

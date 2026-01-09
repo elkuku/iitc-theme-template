@@ -10,3 +10,17 @@ a {
 a:hover {
     color: #ffffff;
 }
+
+div.release-container {
+    border: 1px solid lightgray;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+table.changelog-table tr {
+    vertical-align: top;
+}
+
+pre.changelog {
+    color: lime;
+}
