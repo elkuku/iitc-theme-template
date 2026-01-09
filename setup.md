@@ -17,7 +17,7 @@ The same for `id`. (Don't use spaces and don't remove the "TcTheme" part).
 `<OWNER>` and `<REPO>` are referring to the owner and repository on GitHub.<br>
 `<PLUGIN_NAME>` - copy the whole `id` field from above.
 * `<DISPLAY_NAME>`- The name that will be displayed in the theme chooser.
-* `<PREVIEW_URL` - The preview URL of your theme.
+* `<PREVIEW_URL` - The preview URL of your theme.<br> By default, the preview image inside the theme folder will be copied to the GitHub page, so you can set the URL to it here.
 
 OK. This was the hardest part. I promise :wink:
 

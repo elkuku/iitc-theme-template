@@ -7,5 +7,5 @@
   "entry": "src/Main.ts",
   "downloadURL": "https://<OWNER>.github.io/<REPO>/files/release/<PLUGIN_ID>.user.js",
   "displayName": "<DISPLAY_NAME>",
-  "previewUrl": "https://<PREVIEW_URL>"
+  "previewUrl": "https://<OWNER>.github.io/<REPO>/preview.png"
 }

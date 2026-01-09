@@ -91,4 +91,8 @@ template = template.replace('{{DEV_LINKS}}', devLinks)
 
 fs.writeFileSync('gh_page/index.html', template, 'utf8')
 
+if (fs.existsSync('theme/preview.png')) {
+    fs.copyFileSync('theme/preview.png', 'gh_page/preview.png')
+}
+
 console.log('Finished =;)')
