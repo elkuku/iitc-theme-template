@@ -92,6 +92,8 @@ jobs:
           path: gh_page
 
   deploy:
+    # Do NOT run when this repository is the template itself
+    if: ${{ github.event.repository.is_template == false }}
     needs: build
     runs-on: ubuntu-latest
 
