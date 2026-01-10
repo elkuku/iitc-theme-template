@@ -10,7 +10,7 @@ import changelog from '../build/changelog.json'
 
 // @ts-expect-error we don't want to import JSON files :(
 import plugin from '../plugin.json'
-import {Changelog, Info, Theme} from '../types/Types'
+import {Changelog, Info, Theme, ThemeInfo} from '../types/Types'
 
 // eslint-disable-next-line @typescript-eslint/no-unsafe-call
 const PLUGIN_NAME = plugin.name.replace('IITC plugin: ', '') as string
@@ -23,6 +23,17 @@ class Main implements Plugin.Class {
 
     public getTheme(): Theme {
         return theme as Theme
+    }
+
+    public getThemeInfo(): ThemeInfo {
+        const variants = theme.variants ? Object.keys(theme.variants as object) : {}
+        const options = theme.options ? Object.keys(theme.options as object) : {}
+        return {
+            name: theme.name,
+            preview: theme.preview,
+            variants: variants,
+            options: options,
+        } as ThemeInfo
     }
 
     public getChangelog(): Changelog[] {
