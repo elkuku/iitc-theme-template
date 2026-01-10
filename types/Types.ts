@@ -11,3 +11,9 @@ export interface Changelog {
     message: string,
 }
 
+export interface Info {
+    name: string,
+    author: string,
+    version: string,
+}
+

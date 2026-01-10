@@ -2,7 +2,6 @@ import * as Plugin from 'iitcpluginkit'
 
 // NOTE: The following files in the build folder don't exist in the repository.
 // They are generated using the scripts in the `/scripts` folder.
-
 // @ts-expect-error we don't want to import JSON files :(
 import theme from '../build/theme.json'
 
@@ -11,11 +10,10 @@ import changelog from '../build/changelog.json'
 
 // @ts-expect-error we don't want to import JSON files :(
 import plugin from '../plugin.json'
+import {Changelog, Info, Theme} from '../types/Types'
 
 // eslint-disable-next-line @typescript-eslint/no-unsafe-call
 const PLUGIN_NAME = plugin.name.replace('IITC plugin: ', '') as string
-
-import {Changelog, Theme} from '../types/Types'
 
 class Main implements Plugin.Class {
 
@@ -27,8 +25,16 @@ class Main implements Plugin.Class {
         return theme as Theme
     }
 
-    public getChangelog(): Changelog {
-        return changelog as Changelog
+    public getChangelog(): Changelog[] {
+        return changelog as Changelog[]
+    }
+
+    public getInfo(): Info {
+        return {
+            name: plugin.displayName,
+            author: plugin.author,
+            version: VERSION,
+        }
     }
 }
 
