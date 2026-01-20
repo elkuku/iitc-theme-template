@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
 import {execSync} from 'node:child_process'
-import {writeFileSync} from 'node:fs'
 import {resolve} from 'node:path'
+import fs from 'fs'
 
 function getTags() {
 
@@ -34,14 +34,36 @@ function getTags() {
     return tags
 }
 
+function readIfExistsSync(path) {
+    try {
+        return fs.readFileSync(path, 'utf8')
+    } catch (err) {
+        if (err.code === 'ENOENT') {
+            return null
+        }
+        throw err
+    }
+}
+
 function writeJsonFile(data, filename = 'build/changelog.json') {
     const filePath = resolve(process.cwd(), filename)
-    writeFileSync(filePath, JSON.stringify(data, null, 2), 'utf8')
-    console.log(`changelog written to ${filePath}`)
+    fs.writeFileSync(filePath, JSON.stringify(data, null, 2), 'utf8')
+    console.log(`Changelog written to ${filePath}`)
 }
 
 try {
-    const tags = getTags()
+    console.log('Creating changelog...')
+    let tags = []
+    const content = readIfExistsSync('changelog.txt')
+
+    if (content === null) {
+        console.log('No changelog.txt found. Create changelog from git tags')
+        tags = getTags()
+    } else {
+        console.log('Found changelog.txt')
+        tags.push({name: 'changelog', message: content})
+    }
+
     writeJsonFile(tags)
 } catch (err) {
     console.error('Failed to read tags:', err.message)
