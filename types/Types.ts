@@ -20,6 +20,7 @@ export interface Changelog {
 
 export interface Info {
     name: string,
+    description: string,
     author: string,
     version: string,
 }
