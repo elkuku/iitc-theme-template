@@ -1,5 +1,6 @@
 export interface Theme {
     name: string,
+    imports: string,
     css: string,
     preview: string,
     variants?: Record<string, string>,
