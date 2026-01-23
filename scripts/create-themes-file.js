@@ -16,6 +16,7 @@ let cssString = fs.readFileSync('theme/main.css', 'utf8') + '\n'
 const additionalCssFiles = fs.readdirSync('theme')
     .filter(file => file.endsWith('.css'))
     .filter(file => !file.startsWith('main.css'))
+    .filter(file => !file.startsWith('imports.css'))
 
 additionalCssFiles.forEach(file => {
     cssString += fs.readFileSync('theme/' + file, 'utf8') + '\n'
