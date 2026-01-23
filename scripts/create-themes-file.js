@@ -4,11 +4,13 @@ import fs from 'fs'
 
 if (!fs.existsSync('build')) fs.mkdirSync('build')
 
-let importsCss = ''
 const variants = {}
 const options = {}
 
 const config = JSON.parse(fs.readFileSync('plugin.json'))
+
+const importsCss = fs.existsSync('theme/imports.css') ? fs.readFileSync('theme/imports.css', 'utf8') + '\n' : ''
+
 let cssString = fs.readFileSync('theme/main.css', 'utf8') + '\n'
 
 const additionalCssFiles = fs.readdirSync('theme')
@@ -18,14 +20,6 @@ const additionalCssFiles = fs.readdirSync('theme')
 additionalCssFiles.forEach(file => {
     cssString += fs.readFileSync('theme/' + file, 'utf8') + '\n'
 })
-
-if (fs.existsSync('theme/imports')) {
-    const importFiles = fs.readdirSync('theme/imports')
-        .filter(file => !file.startsWith('.gitignore'))
-    importFiles.forEach(file => {
-        importsCss += fs.readFileSync('theme/imports/' + file, 'utf8') + '\n'
-    })
-}
 
 if (fs.existsSync('theme/variants')) {
     const variantFiles = fs.readdirSync('theme/variants')
